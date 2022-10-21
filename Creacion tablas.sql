@@ -44,7 +44,7 @@ CREATE TABLE Profesor (
 );
 CREATE TABLE Materia (
 	Cod_materia int PRIMARY KEY,
-	Nombre varchar(40) NOT NULL,
+	Nombre varchar(130) NOT NULL,
 );
 CREATE TABLE Profesor_Materia (
 	Dni int,
