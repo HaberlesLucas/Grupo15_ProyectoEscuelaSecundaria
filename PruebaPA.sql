@@ -1,3 +1,4 @@
+
 -- =============================================
 -- Author:		<Ignacio Luque>
 -- Create date: <19-10-2020>
@@ -14,35 +15,34 @@ CREATE PROCEDURE AgregarAlumno
 @DNI int,
 @Provincia int,
 @Localidad int,
-@A�o int,
+@Anio int,
 @Division char,
 @Sexo char,
 @FechaNac date,
 @Direccion varchar(255)
       AS
 BEGIN
-	IF @A�o IS NULL OR @Division IS NULL
-		INSERT INTO estructura.Alumno (Nombre,Apellido,Dni,Cod_provincia,cod_localidad,A�o,Division,Sexo,FechaNacimiento,Direccion) 
+	IF @Anio IS NULL OR @Division IS NULL
+		INSERT INTO Alumno (Nombre,Apellido,Dni,Cod_provincia,cod_localidad,Anio,Division,Sexo,FechaNacimiento,Direccion) 
 		VALUES (@Nombre,@Apellido,@DNI,@Provincia,@Localidad,NULL,NULL,@Sexo,@FechaNac,@Direccion)
 	ELSE
-		INSERT INTO estructura.Alumno (Nombre,Apellido,Dni,Cod_provincia,cod_localidad,A�o,Division,Sexo,FechaNacimiento,Direccion) 
-		VALUES (@Nombre,@Apellido,@DNI,@Provincia,@Localidad,@A�o,@Division,@Sexo,@FechaNac,@Direccion)
+		INSERT INTO Alumno (Nombre,Apellido,Dni,Cod_provincia,cod_localidad,Anio,Division,Sexo,FechaNacimiento,Direccion) 
+		VALUES (@Nombre,@Apellido,@DNI,@Provincia,@Localidad,@Anio,@Division,@Sexo,@FechaNac,@Direccion)
 
 		DECLARE @codMateria int
 		DECLARE materias CURSOR FOR 
-			SELECT estructura.Materia.Cod_Materia FROM estructura.Curso_Materia 
-			JOIN estructura.Materia ON estructura.Materia.Cod_Materia = estructura.Curso_Materia.Cod_Materia
-			WHERE estructura.Curso_Materia.A�o = @A�o AND estructura.Curso_Materia.Division = @Division 
+			SELECT Materia.Cod_Materia FROM Curso_Materia 
+			JOIN Materia ON Materia.Cod_Materia = Curso_Materia.Cod_Materia
+			WHERE Curso_Materia.Anio = @Anio AND Curso_Materia.Division = @Division 
 		
 		OPEN materias
 		FETCH NEXT FROM materias INTO @codMateria
 		WHILE @@FETCH_STATUS = 0
 		BEGIN
-			INSERT INTO estructura.Alumno_Nota (Dni, Cod_materia, Nota1, Nota2, Nota3) VALUES(@DNI, @codMateria, NULL,NULL,NULL)
+			INSERT INTO Alumno_Nota (Dni, Cod_materia, Nota1, Nota2, Nota3) VALUES(@DNI, @codMateria, NULL,NULL,NULL)
 			FETCH NEXT FROM materias INTO @codMateria
 		END
 		CLOSE materias
 		DEALLOCATE materias
 END  
 
-EXECUTE AgregarAlumno @Nombre='Pepe',@Apellido='Gorreado',@DNI=440007744,@Provincia=1,@Localidad=1,@A�o=1,@Division=2,@Sexo='M',@FechaNac='20020331',@Direccion='Concordia 122'

@@ -16,7 +16,7 @@ VALUES
     (22865973, 20, 7, 'Carlos Edgardo', 'Fernandez', '19710617', 'Federación 512', 'M')
 
 --Carga de cursos
-INSERT INTO estructura.Curso(Año, Division) 
+INSERT INTO estructura.Curso(Anio, Division) 
 VALUES 
     (1, '1'),
     (1, '2'),
@@ -43,7 +43,7 @@ VALUES
     (29587254, 3),
     (22865973, 2)
 --DELETE FROM  estructura.Profesor_Materia
-INSERT INTO estructura.Curso_Materia(Año, Division, DniProfesor, Cod_materia)
+INSERT INTO estructura.Curso_Materia(Anio, Division, DniProfesor, Cod_materia)
 VALUES
     (1, 2, 36524824, 1),
 	(1, 2, 36524824, 2),
@@ -65,16 +65,16 @@ INSERT INTO estructura.Alumno (Nombre,Sexo,Apellido,Dni, Cod_provincia, Cod_Loca
  INSERT INTO estructura.Alumno (Nombre,Sexo,Apellido,Dni, Cod_provincia, Cod_Localidad, Direccion, FechaNacimiento) VALUES('MARCOS ADOLFO','M','SILVA','46181216',19,15,'Naschel 2019','2018-7-24')
 
  --Carga de alumnos con procedimiento almacenado
-EXECUTE AgregarAlumno @Nombre='ANTONIO',@Sexo='M',@Apellido='DEL PLA',@DNI=46119196,@Provincia=17,@Localidad=25,@Direccion='Gastre 2020',@FechaNac='2013-6-11',@Año=1,@Division='2'
-EXECUTE AgregarAlumno @Nombre='ESMERALDA NOEMI',@Sexo='F',@Apellido='VEGEGA',@DNI=46749248,@Provincia=6,@Localidad=48,@Direccion='La Carlota 2021',@FechaNac='2017-3-14',@Año=1,@Division='2'
-EXECUTE AgregarAlumno @Nombre='LUCIANA BEATRIZ',@Sexo='F',@Apellido='RODRÍGUEZ',@DNI=46939773,@Provincia=19,@Localidad=7,@Direccion='Sunchales 2011',@FechaNac='2020-3-7',@Año=1,@Division='2'
-EXECUTE AgregarAlumno @Nombre='VANINA ELIZABET',@Sexo='F',@Apellido='TARTARA',@DNI=46477324,@Provincia=22,@Localidad=29,@Direccion='Coronda 2017',@FechaNac='2015-5-21',@Año=1,@Division='2'
-EXECUTE AgregarAlumno @Nombre='ROSA FRANCISCA',@Sexo='F',@Apellido='SOTO',@DNI=46503418,@Provincia=21,@Localidad=28,@Direccion='San Nicolás de los Arroyos 2015',@FechaNac='2011-1-20',@Año=1,@Division='2'
-EXECUTE AgregarAlumno @Nombre='CINTIA NATALIA',@Sexo='F',@Apellido='GETAR',@DNI=46452244,@Provincia=14,@Localidad=46,@Direccion='San Salvador 2012',@FechaNac='2006-1-23',@Año=1,@Division='2'
-EXECUTE AgregarAlumno @Nombre='LUCIANA',@Sexo='F',@Apellido='LANES',@DNI=46400608,@Provincia=2,@Localidad=9,@Direccion='Verónica 2011',@FechaNac='2006-5-3',@Año=1,@Division='2'
-EXECUTE AgregarAlumno @Nombre='SILVINA',@Sexo='F',@Apellido='GONZÁLEZ MAS',@DNI=46435185,@Provincia=14,@Localidad=43,@Direccion='Inriville 2015',@FechaNac='2016-3-19',@Año=1,@Division='2'
-EXECUTE AgregarAlumno @Nombre='PATRICIA CRISTINA',@Sexo='F',@Apellido='VIOLA',@DNI=46639962,@Provincia=22,@Localidad=31,@Direccion='Nueva Esperanza 2011',@FechaNac='2021-11-27',@Año=1,@Division='2'
-EXECUTE AgregarAlumno @Nombre='MATÍAS FEDERICO',@Sexo='M',@Apellido='GONZALEZ BERNALDO DE QUIROS',@DNI=46508859,@Provincia=7,@Localidad=31,@Direccion='El Calafate 2018',@FechaNac='2006-8-6',@Año=1,@Division='2'
+EXECUTE AgregarAlumno @Nombre='ANTONIO',@Sexo='M',@Apellido='DEL PLA',@DNI=46119196,@Provincia=17,@Localidad=25,@Direccion='Gastre 2020',@FechaNac='2013-6-11',@Anio=1,@Division='2'
+EXECUTE AgregarAlumno @Nombre='ESMERALDA NOEMI',@Sexo='F',@Apellido='VEGEGA',@DNI=46749248,@Provincia=6,@Localidad=48,@Direccion='La Carlota 2021',@FechaNac='2017-3-14',@Anio=1,@Division='2'
+EXECUTE AgregarAlumno @Nombre='LUCIANA BEATRIZ',@Sexo='F',@Apellido='RODRÍGUEZ',@DNI=46939773,@Provincia=19,@Localidad=7,@Direccion='Sunchales 2011',@FechaNac='2020-3-7',@Anio=1,@Division='2'
+EXECUTE AgregarAlumno @Nombre='VANINA ELIZABET',@Sexo='F',@Apellido='TARTARA',@DNI=46477324,@Provincia=22,@Localidad=29,@Direccion='Coronda 2017',@FechaNac='2015-5-21',@Anio=1,@Division='2'
+EXECUTE AgregarAlumno @Nombre='ROSA FRANCISCA',@Sexo='F',@Apellido='SOTO',@DNI=46503418,@Provincia=21,@Localidad=28,@Direccion='San Nicolás de los Arroyos 2015',@FechaNac='2011-1-20',@Anio=1,@Division='2'
+EXECUTE AgregarAlumno @Nombre='CINTIA NATALIA',@Sexo='F',@Apellido='GETAR',@DNI=46452244,@Provincia=14,@Localidad=46,@Direccion='San Salvador 2012',@FechaNac='2006-1-23',@Anio=1,@Division='2'
+EXECUTE AgregarAlumno @Nombre='LUCIANA',@Sexo='F',@Apellido='LANES',@DNI=46400608,@Provincia=2,@Localidad=9,@Direccion='Verónica 2011',@FechaNac='2006-5-3',@Anio=1,@Division='2'
+EXECUTE AgregarAlumno @Nombre='SILVINA',@Sexo='F',@Apellido='GONZÁLEZ MAS',@DNI=46435185,@Provincia=14,@Localidad=43,@Direccion='Inriville 2015',@FechaNac='2016-3-19',@Anio=1,@Division='2'
+EXECUTE AgregarAlumno @Nombre='PATRICIA CRISTINA',@Sexo='F',@Apellido='VIOLA',@DNI=46639962,@Provincia=22,@Localidad=31,@Direccion='Nueva Esperanza 2011',@FechaNac='2021-11-27',@Anio=1,@Division='2'
+EXECUTE AgregarAlumno @Nombre='MATÍAS FEDERICO',@Sexo='M',@Apellido='GONZALEZ BERNALDO DE QUIROS',@DNI=46508859,@Provincia=7,@Localidad=31,@Direccion='El Calafate 2018',@FechaNac='2006-8-6',@Anio=1,@Division='2'
 
 --Carga de Provincias
 INSERT INTO estructura.Provincia VALUES(1                             ,'Capital Federal')
