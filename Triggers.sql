@@ -1,12 +1,15 @@
 -- =============================================
 -- Author:		<Ignacio Luque>
 -- Create date: <22-10-2022>
--- Description:	<Cambia el curso de un alumno, actualizando también sus notas. Se dan tres situaciones:
---				1-El nuevo curso sea válido y el alumno ya haya pertenecido a un curso, por lo que se borran sus notas anteriores y se cargan las notas correspondientes al nuevo curso
---				2-El nuevo curso sea válido y el alumno no haya pertenecido a un curso, por lo que se cargan las notas correspondientes al nuevo curso
+-- Description:	<Cambia el curso de un alumno, actualizando tambiï¿½n sus notas. Se dan tres situaciones:
+--				1-El nuevo curso sea vï¿½lido y el alumno ya haya pertenecido a un curso, por lo que se borran sus notas anteriores y se cargan las notas correspondientes al nuevo curso
+--				2-El nuevo curso sea vï¿½lido y el alumno no haya pertenecido a un curso, por lo que se cargan las notas correspondientes al nuevo curso
 --				3-El curso sea NULL y el alumno ya haya pertenecido a un curso, por lo que se borran las notas correspondientes al curso antiguo
 -->
 -- =============================================
+
+USE proyectoEscuelaSecundaria
+GO
 
 CREATE TRIGGER UpdateAlumnoCurso ON Alumno
 INSTEAD OF UPDATE
@@ -36,7 +39,7 @@ BEGIN
 				IF @@ERROR <> 0
 				ROLLBACK TRAN
 			END
-			/*Si el alumno no pertenecía a un curso, solo se deben agregar las notas del curso al que se agregó*/
+			/*Si el alumno no pertenecï¿½a a un curso, solo se deben agregar las notas del curso al que se agregï¿½*/
 			WHILE @@FETCH_STATUS = 0
 			BEGIN
 				INSERT INTO Alumno_Nota (Dni,Cod_materia) VALUES(@dniAlumno, @codMateria)
@@ -49,7 +52,7 @@ BEGIN
 			DEALLOCATE materias
 		END
 	ELSE
-	/*Si llega hasta aquí quiere decir que anio y/o division son NULL, por lo que si el alumno ya pertenecía a un curso debemos borrar sus notas*/
+	/*Si llega hasta aquï¿½ quiere decir que anio y/o division son NULL, por lo que si el alumno ya pertenecï¿½a a un curso debemos borrar sus notas*/
 	BEGIN
 	UPDATE Alumno SET Anio=NULL, Division=NULL WHERE Dni=@dniAlumno
 	IF @@ERROR <> 0

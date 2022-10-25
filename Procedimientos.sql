@@ -54,13 +54,14 @@ BEGIN
 		DEALLOCATE materias
 	COMMIT TRAN
 END  
+GO
 --DROP PROCEDURE AgregarAlumno
 --Para probar
-EXECUTE AgregarAlumno @Nombre='HÉCTOR',@Sexo='M',@Apellido='GORDILLO',@DNI=111,@Provincia=11,@Localidad=26,@Direccion='General Viamonte 1658',@FechaNac='2008-4-2',@Anio=1,@Division='1'
-SELECT * FROM Alumno WHERE Dni=111 
-DELETE FROM Alumno WHERE Dni=111
+--EXECUTE AgregarAlumno @Nombre='Hï¿½CTOR',@Sexo='M',@Apellido='GORDILLO',@DNI=111,@Provincia=11,@Localidad=26,@Direccion='General Viamonte 1658',@FechaNac='2008-4-2',@Anio=1,@Division='1'
+--SELECT * FROM Alumno WHERE Dni=111 
+--DELETE FROM Alumno WHERE Dni=111
 
-GO
+
 -- =============================================
 -- Author:		<Ignacio Luque>
 -- Create date: <21-10-2022>
@@ -123,7 +124,7 @@ BEGIN
 	FETCH NEXT FROM Alumnos INTO @DniAlumno
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
-		/*Primero borramos los registros de la tabla Alumno_Nota para evitar el error por restricción de FK*/
+		/*Primero borramos los registros de la tabla Alumno_Nota para evitar el error por restricciï¿½n de FK*/
 		DELETE FROM Alumno_Nota WHERE Dni=@DniAlumno AND Cod_materia=@Materia
 		FETCH NEXT FROM Alumnos INTO @DniAlumno
 	END
