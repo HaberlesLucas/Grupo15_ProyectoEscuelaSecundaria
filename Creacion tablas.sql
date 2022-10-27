@@ -1,10 +1,27 @@
 -- Creación de la BDD
-CREATE DATABASE proyectoEscuelaSecundaria;
+--DROP DATABASE IF EXISTS proyectoEscuelaSecundaria
+--CREATE DATABASE proyectoEscuelaSecundaria;
 go
 -- Se seecciona la base de datos
 USE proyectoEscuelaSecundaria;
 --USE Agencia
 go
+
+DROP TABLE  IF EXISTS Alumno_Nota
+DROP TABLE  IF EXISTS Tutor_Alumno
+DROP TABLE  IF EXISTS Alumno
+DROP TABLE  IF EXISTS Tutor
+DROP TABLE  IF EXISTS Curso_Materia
+DROP TABLE  IF EXISTS Profesor_Materia
+DROP TABLE  IF EXISTS Profesor
+DROP TABLE  IF EXISTS Materia
+DROP TABLE  IF EXISTS Curso
+DROP TABLE  IF EXISTS Localidad
+DROP TABLE  IF EXISTS Provincia
+
+DROP PROCEDURE IF EXISTS AgregarAlumno
+DROP PROCEDURE IF EXISTS AgregarMateriaCurso
+DROP PROCEDURE IF EXISTS EliminarMateriaCurso
 
 -- CREAR las tablas dentro del esquema estructura
 CREATE TABLE Provincia (
